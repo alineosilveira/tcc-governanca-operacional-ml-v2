@@ -1,4 +1,4 @@
 nível de evidência do alvo,média observada (teste),IRR log_tamanho,p log_tamanho,MAE modelo,MAE baseline
-conservador,1.27,1.445,0.0,1.334,1.624
-ampliado,8.196,1.403,0.0,6.632,9.277
-maximo,8.42,1.394,0.0,6.903,9.584
+conservador,1.302,1.443,0.0,1.367,1.663
+ampliado,8.386,1.409,0.0,6.745,9.484
+maximo,8.616,1.4,0.0,7.022,9.799

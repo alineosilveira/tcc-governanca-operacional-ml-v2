@@ -105,6 +105,28 @@ def test_tabelas_publicadas_conferem_com_bases():
     assert (chk["chaves duplicadas"] == 0).all()
 
 
+# ----------------------------------------------------------------- decisões D2 e D8
+@needs_bases
+def test_d2_projetos_acima_do_limite_fora_da_h1():
+    tab = REPO / "resultados" / "tabelas" / "cap9_h1_metricas_por_projeto.csv"
+    if not tab.exists():
+        pytest.skip("notebook ainda não executado")
+    mr = pd.read_csv(BASES / "modelo_releases.csv", usecols=["project_key", "pct_vinculos_indeterminados_projeto"])
+    acima = set(mr.loc[mr["pct_vinculos_indeterminados_projeto"] > 10, "project_key"])
+    assert acima, "esperado ao menos um projeto acima do limite (ex.: HTTPCORE)"
+    assert not (acima & set(pd.read_csv(tab)["projeto"])), "projeto com >10% de vínculos indeterminados na avaliação da H1"
+
+
+def test_d8_teste_h2_inalterado():
+    tab = REPO / "resultados" / "tabelas"
+    atual, ant = tab / "cap9_h2_metricas_por_projeto.csv", tab / "versao_anterior_852b9c9" / "cap9_h2_metricas_por_projeto.csv"
+    if not (atual.exists() and ant.exists()):
+        pytest.skip("tabelas de comparação indisponíveis")
+    a = pd.read_csv(atual).set_index("projeto")["bugs_teste"].sort_index()
+    b = pd.read_csv(ant).set_index("projeto")["bugs_teste"].sort_index()
+    assert a.equals(b), "o conjunto de teste da H2 deveria ser idêntico ao da versão anterior"
+
+
 # ----------------------------------------------------------------- arquivos destinados ao GitHub
 def _versionaveis():
     ignorar = {".git", ".venv", "__pycache__", ".pytest_cache", ".ipynb_checkpoints"}

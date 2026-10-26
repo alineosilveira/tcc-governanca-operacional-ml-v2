@@ -92,4 +92,4 @@ O dicionário descreve apenas os campos usados nas bases analíticas e no notebo
 | Base | Campos |
 |---|---|
 | `modelo_bugs_faixa.csv` | `issue_id`, `project`, `created`, `split`, `faixa_90d` (alvo), `prioridade_t0`, `responsavel_na_abertura`, `affects_version_na_criacao`, `componentes_na_criacao`, `bugs_projeto_30d_anteriores`, `backlog_aberto_projeto_t0` |
-| `modelo_releases.csv` | `version_id`, `project_key`, `name`, `release_date`, `split`, `classe_180d`, `projeto_modular`, `tipo_versao`, `tamanho_t0`, `bugs_na_release_t0`, `evolucao_na_release_t0`, `dias_desde_release_anterior`, `releases_90d_anteriores`, `acompanhamento_180d_completo`, `bugs_180d_{conservador,ampliado,maximo}` (alvos) |
+| `modelo_releases.csv` | `version_id`, `project_key`, `name`, `release_date`, `split`, `classe_180d`, `projeto_modular`, `tipo_versao`, `tamanho_t0`, `bugs_na_release_t0`, `evolucao_na_release_t0`, `dias_desde_release_anterior`, `releases_90d_anteriores`, `pct_vinculos_indeterminados_projeto` (D2: % de vínculos INDETERMINADOS no projeto; elegível se ≤ 10), `acompanhamento_180d_completo`, `bugs_180d_{conservador,ampliado,maximo}` (alvos) |

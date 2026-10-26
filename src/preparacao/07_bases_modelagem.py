@@ -15,6 +15,8 @@ Bases de modelagem com variáveis disponíveis em T0 (sem informação futura).
       features: tamanho e composição da release em T0 (Fix Version atribuída até T0, regra do 04),
                 dias desde a release anterior, releases do projeto nos 90 dias anteriores,
                 tipo de versão pelo nome, projeto.
+      qualidade (D2): pct_vinculos_indeterminados_projeto — % de vínculos INDETERMINADOS no projeto
+                (critério de elegibilidade <= 10%, aplicado no notebook).
 
 Split cronológico comum: treino = T0 em 2020-01-01..2023-12-31; teste = T0 >= 2024-01-01 com
 acompanhamento completo do horizonte; demais = 'fora'.
@@ -172,11 +174,16 @@ def main():
     for nome, m in (("bugs_180d_conservador", comprov), ("bugs_180d_ampliado", comprov | recons),
                     ("bugs_180d_maximo", comprov | recons | infer)):
         R[nome] = R["version_id"].map(br[m].groupby("version_id")["issue_id"].nunique()).fillna(0).astype(int)
+    # D2: % de vínculos Affects Version temporalmente INDETERMINADOS no projeto (mesma regra do 06);
+    # a elegibilidade (<= 10%) é aplicada no notebook, preservando os demais filtros
+    pind = ve.groupby("project")["nivel"].apply(lambda s: 100 * (s == "INDETERMINADO").mean())
+    R["pct_vinculos_indeterminados_projeto"] = R["project_key"].map(pind).round(2)
     R["acompanhamento_180d_completo"] = (R["release_date"] + pd.Timedelta(days=H_REL) <= DATA_END).astype(int)
     R["split"] = split(R["release_date"], H_REL)
     keep = ["version_id", "project_key", "name", "release_date", "split", "classe_180d", "projeto_modular",
             "tipo_versao", "tamanho_t0", "bugs_na_release_t0", "evolucao_na_release_t0",
-            "dias_desde_release_anterior", "releases_90d_anteriores", "acompanhamento_180d_completo",
+            "dias_desde_release_anterior", "releases_90d_anteriores", "pct_vinculos_indeterminados_projeto",
+            "acompanhamento_180d_completo",
             "bugs_180d_conservador", "bugs_180d_ampliado", "bugs_180d_maximo"]
     R[keep].to_csv(os.path.join(a.bases, "modelo_releases.csv"), index=False, encoding="utf-8")
     print(f"modelo_bugs_faixa: {len(B)} bugs ({(B['split'] == 'treino').sum()} treino / {(B['split'] == 'teste').sum()} teste)")

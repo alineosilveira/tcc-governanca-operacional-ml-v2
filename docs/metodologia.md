@@ -52,9 +52,11 @@ Os parâmetros abaixo são os efetivamente usados, conforme `resultados/coleta/m
 
 ## 5. Decisões metodológicas
 
-As decisões D1–D8 foram aprovadas e estão registradas em `decisoes_metodologicas.md`, com o status de implementação de cada uma. Duas diferenças entre o aprovado e o executado estão declaradas lá, e não foram recalculadas nesta versão:
-- **D2:** o limite de 10% de vínculos indeterminados ainda não foi aplicado e excluiria HTTPCORE da H1.
-- **D8:** na H2, os projetos sem observações de teste também ficaram fora do treino.
+As decisões D1–D8 foram aprovadas e estão registradas em `decisoes_metodologicas.md`, com o status de implementação de cada uma. As duas divergências da execução anterior (commit `852b9c9`) foram corrigidas e comparadas no notebook (anterior × atual, sobre os mesmos dados):
+- **D2, na H1:** projetos com mais de 10% de vínculos indeterminados ficam fora, o que exclui HTTPCORE.
+- **D8, na H2:** projetos sem observações de teste agora contribuem para o treino conjunto.
+
+Ficam pendentes só as sensibilidades D3 (opcional), D4, D5, D6 (modelo com 90 d) e D8 (exclusão do treino).
 
 ### Técnicas do MBA utilizadas
 

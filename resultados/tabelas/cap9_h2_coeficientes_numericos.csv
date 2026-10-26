@@ -1,6 +1,6 @@
 variável (padronizada),31-90d,8-30d,<=7d,>90d ou nao Fixed
-responsavel_na_abertura,-0.055,0.102,0.369,-0.417
-affects_version_na_criacao,0.001,-0.03,-0.076,0.106
-log_componentes_na_criacao,0.013,0.005,-0.01,-0.008
-log_bugs_projeto_30d_anteriores,-0.04,0.029,0.048,-0.036
-log_backlog_aberto_projeto_t0,0.017,0.007,-0.049,0.025
+responsavel_na_abertura,-0.048,0.095,0.379,-0.426
+affects_version_na_criacao,0.02,-0.033,-0.091,0.104
+log_componentes_na_criacao,0.012,0.007,-0.005,-0.014
+log_bugs_projeto_30d_anteriores,-0.018,0.02,0.029,-0.03
+log_backlog_aberto_projeto_t0,0.022,0.007,-0.053,0.025

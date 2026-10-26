@@ -1,0 +1,13 @@
+modelo,faixa,precisão,recall,F1,observados,previstos
+baseline,<=7d,0.592,0.199,0.298,9394,3157
+baseline,8-30d,0.115,0.002,0.005,3646,78
+baseline,31-90d,0.0,0.0,0.0,1953,0
+baseline,>90d ou nao Fixed,0.443,0.929,0.6,10711,22469
+anterior (sem D8),<=7d,0.563,0.52,0.541,9394,8669
+anterior (sem D8),8-30d,0.115,0.002,0.004,3646,61
+anterior (sem D8),31-90d,0.0,0.0,0.0,1953,0
+anterior (sem D8),>90d ou nao Fixed,0.516,0.817,0.632,10711,16974
+atual (com D8),<=7d,0.563,0.521,0.541,9394,8687
+atual (com D8),8-30d,0.115,0.002,0.004,3646,61
+atual (com D8),31-90d,0.0,0.0,0.0,1953,0
+atual (com D8),>90d ou nao Fixed,0.516,0.817,0.633,10711,16956

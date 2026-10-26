@@ -1,0 +1,3 @@
+modelo,acurácia,acurácia balanceada,F1 macro
+baseline (classe majoritária do projeto),0.46,0.283,0.226
+logística multinomial + efeito de projeto,0.531,0.335,0.294
