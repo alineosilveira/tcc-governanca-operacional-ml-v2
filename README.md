@@ -23,7 +23,14 @@ As análises de retrabalho e de composição das demandas são exploratórias. *
 |---|---|
 | **1. Consulta** | Abra [`TCC_Analise_e_Modelos_v2.ipynb`](TCC_Analise_e_Modelos_v2.ipynb) aqui no GitHub, já salvo com todas as saídas, ou veja `resultados/` |
 | **2. Reprodução completa local** | Requer o snapshot JSONL (não publicado); ver [`docs/reproducao.md`](docs/reproducao.md) |
-| **3. Colab** | O botão acima abre o notebook executado **para consulta**. A reexecução no Colab não é possível sem as bases locais, que não são publicadas. Enquanto o repositório for privado, o Colab exige autorização de acesso ao GitHub. |
+| **3. Colab** | O botão acima abre o notebook executado **para consulta**. A reexecução no Colab não é possível sem as bases locais, que não são publicadas. Se o repositório estiver privado, o Colab exige autorização de acesso ao GitHub. |
+
+Para obter o código e os resultados:
+
+```bash
+git clone https://github.com/alineosilveira/tcc-governanca-operacional-ml-v2.git
+cd tcc-governanca-operacional-ml-v2
+```
 
 ## Estrutura
 
@@ -105,6 +112,19 @@ jupyter nbconvert --to notebook --execute --inplace TCC_Analise_e_Modelos_v2.ipy
 
 ## Limitações
 
+**Dos modelos:**
+- **H1 (Binomial Negativa):**
+  - **Causalidade:** os resultados são associações, não causas.
+  - **Heterogeneidade:** a significância varia entre projetos (19 de 34 com associação significativa).
+  - **Dependência do campo:** as contagens dependem do nível de evidência do Affects Version (médias de 1,30 / 8,39 / 8,62 bugs por release).
+  - **Validação:** foi feita com uma única divisão cronológica (teste 2024–2026), restrita a 48 projetos verificáveis e não modulares.
+- **H2 (logística multinomial):**
+  - **Desempenho:** é modesto (F1 macro de 0,29 contra 0,23 do baseline).
+  - **Faixas intermediárias:** praticamente não são previstas (8–30 d e 31–90 d). A previsão em quatro faixas **não** é sustentada com os atributos disponíveis na abertura do bug.
+  - **Validação:** foi feita com uma única divisão cronológica (teste 2024–2025).
+- **Sem modelo de reabertura:** a reabertura é analisada só de forma descritiva.
+
+**Dos dados:**
 - **Affects Version:** é opcional e heterogêneo entre projetos. A presença "desde a criação" é inferida, e versões excluídas no Jira somem das issues sem registro.
 - **Releases:** `releaseDate` não está demonstrada como data real de publicação.
 - **Campos ausentes:** não há severidade nem causa raiz estruturadas, e prioridade ≠ severidade.
