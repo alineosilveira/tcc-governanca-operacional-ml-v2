@@ -1,0 +1,8 @@
+indicador,nivel,eta2_projeto,projetos,p10,mediana,p90,min,max,obs
+log(1+dias ate 1a resolucao Fixed),bug,0.1,190,1.09,7.3,39.38,0.0,365.3,dispersao da mediana de dias por projeto
+reabertura em 90d,resolucao,0.019,112,1.0,3.28,7.9,0.0,17.36,evento raro; eta2 baixo em binario nao implica homogeneidade
+bugs Affects Version por release,release,0.276,122,0.95,6.59,37.32,0.0,145.13,ver var/media por projeto
+razao var/media de bugs por release,projeto,,120,1.26,5.86,43.52,0.61,286.15,>1 indica superdispersao (Binomial Negativa); ~1 Poisson
+Affects Version preenchido (% bugs),bug,0.256,112,18.81,63.3,86.15,0.0,100.0,pratica de registro varia por projeto
+assignee na abertura (% bugs),bug,0.135,112,3.31,23.85,55.14,0.0,100.0,
+prioridade dominante (% bugs),projeto,,112,61.06,72.75,86.91,40.0,96.9,esquemas de prioridade diferentes por projeto

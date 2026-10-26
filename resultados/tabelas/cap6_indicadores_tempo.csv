@@ -1,0 +1,4 @@
+indicador,bugs datados,% dos bugs,p25 (dias),mediana (dias),p75 (dias),p90 (dias)
+B1 primeira resolução,88063,76.9,0.91,5.9,36.0,208.09
+B2 primeiro fechamento,88165,77.0,0.9,5.83,35.02,202.37
+B3 primeira correção (Fixed),70375,61.4,0.99,5.75,28.39,134.27

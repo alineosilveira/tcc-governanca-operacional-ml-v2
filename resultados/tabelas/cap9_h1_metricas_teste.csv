@@ -1,0 +1,3 @@
+modelo,MAE,RMSE,Spearman (previsto × observado)
+baseline (média do projeto no treino),9.277,20.068,0.494
+Binomial Negativa + efeito de projeto,6.632,13.038,0.592

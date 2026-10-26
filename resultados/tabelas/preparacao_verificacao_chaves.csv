@@ -1,0 +1,8 @@
+base,linhas,chave,chaves duplicadas,chave com valor ausente
+base_releases.csv,6018,version_id,0,0
+base_bug_release.csv,75033,issue_id+version_id,0,0
+base_bugs_ciclos.csv,114556,issue_id,0,0
+base_vinculos_evidencia.csv,175163,issue_id+version_id,0,0
+base_reaberturas.csv,5022,issue_id+t_reabertura,0,0
+modelo_bugs_faixa.csv,114556,issue_id,0,0
+modelo_releases.csv,4626,version_id,0,0

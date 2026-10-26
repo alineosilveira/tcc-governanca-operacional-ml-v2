@@ -1,0 +1,5 @@
+categoria,vínculos,bugs distintos
+bug ≥2020 × versão publicada <2020,9327,6755
+bug <2020 × versão publicada ≥2020,2622,2362
+bug ≥2020 × versão publicada ≥2020,72411,53304
+versão não publicada / sem data / futura,14968,13545

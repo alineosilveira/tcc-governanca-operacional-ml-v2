@@ -1,0 +1,609 @@
+{
+ "extraction_started_utc": "2026-10-25T20:22:57Z",
+ "manifest_written_utc": "2026-10-25T21:57:01Z",
+ "base_url": "https://issues.apache.org/jira",
+ "server_info": {
+  "baseUrl": "https://issues.apache.org/jira",
+  "version": "10.3.26",
+  "versionNumbers": [
+   10,
+   3,
+   26
+  ],
+  "deploymentType": "Server",
+  "buildNumber": 10030026,
+  "buildDate": "2026-10-02T00:00:00.000+0000",
+  "databaseBuildNumber": 10030026,
+  "scmInfo": "1ecd6b128104dee61aadbfb736809c20260e9b3f",
+  "serverTitle": "ASF Jira"
+ },
+ "api": {
+  "rest": "/rest/api/2",
+  "agile": "/rest/agile/1.0",
+  "docs": "https://developer.atlassian.com/server/jira/platform/rest/v11002/"
+ },
+ "global_jql": "created >= \"2020-01-01\" OR updated >= \"2020-01-01\" OR resolution IS EMPTY",
+ "parameters": {
+  "base_url": "https://issues.apache.org/jira",
+  "out": "data/apache_jira",
+  "since": "2020-01-01",
+  "max_results": 1000,
+  "min_page_size": 100,
+  "window_max": 20000,
+  "concurrency_start": 4,
+  "concurrency_max": 8,
+  "ramp_every": 30,
+  "max_rps": 8.0,
+  "connect_timeout": 20.0,
+  "read_timeout": 180.0,
+  "max_attempts": 8,
+  "backoff_base": 2.0,
+  "backoff_cap": 120.0,
+  "limit": 0,
+  "max_units": 0,
+  "projects_limit": 0,
+  "phases": "inspect,plan,issues,extras,versions,boards,merge",
+  "dry_run": false,
+  "metrics_every": 30.0
+ },
+ "probes": {
+  "global_total": 561363,
+  "maxResults_requested_5000": {
+   "status": 200,
+   "returned_maxResults": 1000,
+   "issues_returned": 1000
+  },
+  "agile_board": 401,
+  "worklog_updated": 401,
+  "issue_changelog_endpoint": 404
+ },
+ "plan": {
+  "at": "2026-10-25T20:23:15Z",
+  "global_jql": "created >= \"2020-01-01\" OR updated >= \"2020-01-01\" OR resolution IS EMPTY",
+  "global_total": 561363,
+  "sum_of_windows": 561363,
+  "window_max": 20000
+ },
+ "units_total": 50,
+ "units_done": 50,
+ "units_failed": [],
+ "pages_fetched": 587,
+ "global_total_at_end": 561369,
+ "versions_projects": {
+  "total": 674,
+  "done": 674,
+  "non_200": {}
+ },
+ "boards_api": {
+  "status": 401,
+  "available": false,
+  "at": "2026-10-25T21:48:21Z"
+ },
+ "merge": {
+  "at": "2026-10-25T21:56:59Z",
+  "issue_lines_in_parts": 561369,
+  "unique_issues": 561369,
+  "duplicate_issue_records_removed": 0,
+  "changelog_histories": 6464445,
+  "comments": 1991188,
+  "worklogs": 843975,
+  "versions": 23837,
+  "sprints_derived": 523,
+  "boards_derived": 43,
+  "issue_sprint_links": 13216,
+  "associated_needs_total": 9203,
+  "associated_missing": {
+   "changelog": 0,
+   "comments": 0,
+   "worklogs": 0
+  },
+  "associated_incomplete": {
+   "changelog": 0,
+   "comments": 0,
+   "worklogs": 0
+  }
+ },
+ "completion": "complete",
+ "units": [
+  {
+   "id": "u0000__200001010000",
+   "lo": null,
+   "hi": "2000-01-01 00:00",
+   "planned": 2,
+   "final_total": 2,
+   "unique_ids": 2,
+   "pages": 1,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0001_200101010000_200201010000",
+   "lo": "2001-01-01 00:00",
+   "hi": "2002-01-01 00:00",
+   "planned": 49,
+   "final_total": 49,
+   "unique_ids": 49,
+   "pages": 1,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0002_200201010000_200301010000",
+   "lo": "2002-01-01 00:00",
+   "hi": "2003-01-01 00:00",
+   "planned": 287,
+   "final_total": 287,
+   "unique_ids": 287,
+   "pages": 1,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0003_200301010000_200401010000",
+   "lo": "2003-01-01 00:00",
+   "hi": "2004-01-01 00:00",
+   "planned": 595,
+   "final_total": 595,
+   "unique_ids": 595,
+   "pages": 1,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0004_200401010000_200501010000",
+   "lo": "2004-01-01 00:00",
+   "hi": "2005-01-01 00:00",
+   "planned": 1144,
+   "final_total": 1144,
+   "unique_ids": 1144,
+   "pages": 2,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0005_200501010000_200601010000",
+   "lo": "2005-01-01 00:00",
+   "hi": "2006-01-01 00:00",
+   "planned": 3725,
+   "final_total": 3725,
+   "unique_ids": 3725,
+   "pages": 4,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0006_200601010000_200701010000",
+   "lo": "2006-01-01 00:00",
+   "hi": "2007-01-01 00:00",
+   "planned": 5529,
+   "final_total": 5529,
+   "unique_ids": 5529,
+   "pages": 6,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0007_200701010000_200801010000",
+   "lo": "2007-01-01 00:00",
+   "hi": "2008-01-01 00:00",
+   "planned": 5905,
+   "final_total": 5905,
+   "unique_ids": 5905,
+   "pages": 6,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0008_200801010000_200901010000",
+   "lo": "2008-01-01 00:00",
+   "hi": "2009-01-01 00:00",
+   "planned": 6879,
+   "final_total": 6879,
+   "unique_ids": 6879,
+   "pages": 7,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0009_200901010000_201001010000",
+   "lo": "2009-01-01 00:00",
+   "hi": "2010-01-01 00:00",
+   "planned": 7360,
+   "final_total": 7360,
+   "unique_ids": 7360,
+   "pages": 8,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0010_201001010000_201101010000",
+   "lo": "2010-01-01 00:00",
+   "hi": "2011-01-01 00:00",
+   "planned": 7861,
+   "final_total": 7861,
+   "unique_ids": 7861,
+   "pages": 8,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0011_201101010000_201201010000",
+   "lo": "2011-01-01 00:00",
+   "hi": "2012-01-01 00:00",
+   "planned": 9287,
+   "final_total": 9287,
+   "unique_ids": 9287,
+   "pages": 10,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0012_201201010000_201301010000",
+   "lo": "2012-01-01 00:00",
+   "hi": "2013-01-01 00:00",
+   "planned": 9923,
+   "final_total": 9923,
+   "unique_ids": 9923,
+   "pages": 10,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0013_201301010000_201401010000",
+   "lo": "2013-01-01 00:00",
+   "hi": "2014-01-01 00:00",
+   "planned": 11140,
+   "final_total": 11140,
+   "unique_ids": 11140,
+   "pages": 12,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0014_201401010000_201501010000",
+   "lo": "2014-01-01 00:00",
+   "hi": "2015-01-01 00:00",
+   "planned": 15722,
+   "final_total": 15722,
+   "unique_ids": 15722,
+   "pages": 16,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0015_201501010000_201507021200",
+   "lo": "2015-01-01 00:00",
+   "hi": "2015-07-02 12:00",
+   "planned": 10317,
+   "final_total": 10317,
+   "unique_ids": 10317,
+   "pages": 11,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0016_201507021200_201601010000",
+   "lo": "2015-07-02 12:00",
+   "hi": "2016-01-01 00:00",
+   "planned": 11104,
+   "final_total": 11104,
+   "unique_ids": 11104,
+   "pages": 12,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0017_201601010000_201607020000",
+   "lo": "2016-01-01 00:00",
+   "hi": "2016-07-02 00:00",
+   "planned": 13028,
+   "final_total": 13028,
+   "unique_ids": 13028,
+   "pages": 14,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0018_201607020000_201701010000",
+   "lo": "2016-07-02 00:00",
+   "hi": "2017-01-01 00:00",
+   "planned": 13815,
+   "final_total": 13815,
+   "unique_ids": 13815,
+   "pages": 14,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0019_201701010000_201707021200",
+   "lo": "2017-01-01 00:00",
+   "hi": "2017-07-02 12:00",
+   "planned": 15703,
+   "final_total": 15703,
+   "unique_ids": 15703,
+   "pages": 16,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0020_201707021200_201801010000",
+   "lo": "2017-07-02 12:00",
+   "hi": "2018-01-01 00:00",
+   "planned": 14291,
+   "final_total": 14291,
+   "unique_ids": 14291,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0021_201801010000_201807021200",
+   "lo": "2018-01-01 00:00",
+   "hi": "2018-07-02 12:00",
+   "planned": 17053,
+   "final_total": 17053,
+   "unique_ids": 17053,
+   "pages": 18,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0022_201807021200_201901010000",
+   "lo": "2018-07-02 12:00",
+   "hi": "2019-01-01 00:00",
+   "planned": 17836,
+   "final_total": 17836,
+   "unique_ids": 17836,
+   "pages": 18,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0023_201901010000_201907021200",
+   "lo": "2019-01-01 00:00",
+   "hi": "2019-07-02 12:00",
+   "planned": 18138,
+   "final_total": 18138,
+   "unique_ids": 18138,
+   "pages": 19,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0024_201907021200_201910011800",
+   "lo": "2019-07-02 12:00",
+   "hi": "2019-10-01 18:00",
+   "planned": 9736,
+   "final_total": 9736,
+   "unique_ids": 9736,
+   "pages": 10,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0025_201910011800_202001010000",
+   "lo": "2019-10-01 18:00",
+   "hi": "2020-01-01 00:00",
+   "planned": 11245,
+   "final_total": 11245,
+   "unique_ids": 11245,
+   "pages": 12,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0026_202001010000_202004011200",
+   "lo": "2020-01-01 00:00",
+   "hi": "2020-04-01 12:00",
+   "planned": 16538,
+   "final_total": 16538,
+   "unique_ids": 16538,
+   "pages": 17,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0027_202004011200_202007020000",
+   "lo": "2020-04-01 12:00",
+   "hi": "2020-07-02 00:00",
+   "planned": 18103,
+   "final_total": 18103,
+   "unique_ids": 18103,
+   "pages": 19,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0028_202007020000_202010011200",
+   "lo": "2020-07-02 00:00",
+   "hi": "2020-10-01 12:00",
+   "planned": 14435,
+   "final_total": 14435,
+   "unique_ids": 14435,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0029_202010011200_202101010000",
+   "lo": "2020-10-01 12:00",
+   "hi": "2021-01-01 00:00",
+   "planned": 14694,
+   "final_total": 14694,
+   "unique_ids": 14694,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0030_202101010000_202104020600",
+   "lo": "2021-01-01 00:00",
+   "hi": "2021-04-02 06:00",
+   "planned": 15663,
+   "final_total": 15663,
+   "unique_ids": 15663,
+   "pages": 16,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0031_202104020600_202107021200",
+   "lo": "2021-04-02 06:00",
+   "hi": "2021-07-02 12:00",
+   "planned": 14875,
+   "final_total": 14875,
+   "unique_ids": 14875,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0032_202107021200_202110011800",
+   "lo": "2021-07-02 12:00",
+   "hi": "2021-10-01 18:00",
+   "planned": 13865,
+   "final_total": 13865,
+   "unique_ids": 13865,
+   "pages": 14,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0033_202110011800_202201010000",
+   "lo": "2021-10-01 18:00",
+   "hi": "2022-01-01 00:00",
+   "planned": 13434,
+   "final_total": 13434,
+   "unique_ids": 13434,
+   "pages": 14,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0034_202201010000_202204020600",
+   "lo": "2022-01-01 00:00",
+   "hi": "2022-04-02 06:00",
+   "planned": 14942,
+   "final_total": 14942,
+   "unique_ids": 14942,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0035_202204020600_202207021200",
+   "lo": "2022-04-02 06:00",
+   "hi": "2022-07-02 12:00",
+   "planned": 13564,
+   "final_total": 13564,
+   "unique_ids": 13564,
+   "pages": 14,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0036_202207021200_202210011800",
+   "lo": "2022-07-02 12:00",
+   "hi": "2022-10-01 18:00",
+   "planned": 12367,
+   "final_total": 12367,
+   "unique_ids": 12367,
+   "pages": 13,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0037_202210011800_202301010000",
+   "lo": "2022-10-01 18:00",
+   "hi": "2023-01-01 00:00",
+   "planned": 12266,
+   "final_total": 12266,
+   "unique_ids": 12266,
+   "pages": 13,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0038_202301010000_202304020600",
+   "lo": "2023-01-01 00:00",
+   "hi": "2023-04-02 06:00",
+   "planned": 11543,
+   "final_total": 11543,
+   "unique_ids": 11543,
+   "pages": 12,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0039_202304020600_202307021200",
+   "lo": "2023-04-02 06:00",
+   "hi": "2023-07-02 12:00",
+   "planned": 10659,
+   "final_total": 10659,
+   "unique_ids": 10659,
+   "pages": 11,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0040_202307021200_202310011800",
+   "lo": "2023-07-02 12:00",
+   "hi": "2023-10-01 18:00",
+   "planned": 9855,
+   "final_total": 9855,
+   "unique_ids": 9855,
+   "pages": 10,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0041_202310011800_202401010000",
+   "lo": "2023-10-01 18:00",
+   "hi": "2024-01-01 00:00",
+   "planned": 10236,
+   "final_total": 10236,
+   "unique_ids": 10236,
+   "pages": 11,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0042_202401010000_202404011200",
+   "lo": "2024-01-01 00:00",
+   "hi": "2024-04-01 12:00",
+   "planned": 10186,
+   "final_total": 10186,
+   "unique_ids": 10186,
+   "pages": 11,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0043_202404011200_202407020000",
+   "lo": "2024-04-01 12:00",
+   "hi": "2024-07-02 00:00",
+   "planned": 9866,
+   "final_total": 9866,
+   "unique_ids": 9866,
+   "pages": 10,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0044_202407020000_202501010000",
+   "lo": "2024-07-02 00:00",
+   "hi": "2025-01-01 00:00",
+   "planned": 18388,
+   "final_total": 18388,
+   "unique_ids": 18388,
+   "pages": 19,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0045_202501010000_202507021200",
+   "lo": "2025-01-01 00:00",
+   "hi": "2025-07-02 12:00",
+   "planned": 18080,
+   "final_total": 18080,
+   "unique_ids": 18080,
+   "pages": 19,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0046_202507021200_202601010000",
+   "lo": "2025-07-02 12:00",
+   "hi": "2026-01-01 00:00",
+   "planned": 14903,
+   "final_total": 14903,
+   "unique_ids": 14903,
+   "pages": 15,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0047_202601010000_202607021200",
+   "lo": "2026-01-01 00:00",
+   "hi": "2026-07-02 12:00",
+   "planned": 17685,
+   "final_total": 17685,
+   "unique_ids": 17685,
+   "pages": 18,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0048_202607021200_202701010000",
+   "lo": "2026-07-02 12:00",
+   "hi": "2027-01-01 00:00",
+   "planned": 17542,
+   "final_total": 17548,
+   "unique_ids": 17548,
+   "pages": 18,
+   "reconciled": "match"
+  },
+  {
+   "id": "u0049_202701010000_",
+   "lo": "2027-01-01 00:00",
+   "hi": null,
+   "planned": 0,
+   "final_total": 0,
+   "unique_ids": 0,
+   "pages": 1,
+   "reconciled": "match"
+  }
+ ]
+}

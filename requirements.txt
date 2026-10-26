@@ -1,0 +1,18 @@
+# Ambiente testado: Python 3.13 (Windows 11). Versões exatas instaladas em docs/reproducao.md.
+# Coleta da API
+httpx>=0.27
+# Preparação e análise
+pandas>=2.2,<3
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+scikit-learn>=1.4
+statsmodels>=0.14
+# Execução do notebook
+nbformat>=5.9
+nbclient>=0.10
+ipykernel>=6.29
+# Testes
+pytest>=8
+# Opcional: auditoria dos materiais de aula (src/analise/02_auditar_mba.py; materiais não incluídos)
+pymupdf>=1.24

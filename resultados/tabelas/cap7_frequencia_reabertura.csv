@@ -1,0 +1,7 @@
+indicador,valor
+bugs com fechamento datado,88165.0
+bugs reabertos,4555.0
+% dos fechados,5.2
+reabertos >1 vez,391.0
+eventos de reabertura,5022.0
+mediana de duração adicional após reabrir (dias),12.5

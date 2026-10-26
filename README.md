@@ -1,0 +1,117 @@
+# Aprendizado de Máquina para Suporte à Decisão na Governança Operacional de Equipes de Tecnologia — v2
+
+Trabalho de Conclusão de Curso – MBA em Data Science e Analytics (USP/Esalq)
+Autora: Aline Oliveira da Silveira · Orientador: Ricardo Theodoro
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/alineosilveira/tcc-governanca-operacional-ml-v2/blob/main/TCC_Analise_e_Modelos_v2.ipynb)
+
+> **Versão 2.** A v2 usa uma **nova fonte de dados**: uma extração própria e completa do Jira público da Apache Software Foundation, de 25/10/2026. A [versão 1](https://github.com/alineosilveira/tcc-governanca-operacional-ml) usou a base TAWOS. Os repositórios são independentes, e nenhum resultado da v1 é reaproveitado aqui.
+
+## Objetivo
+
+O trabalho avalia se, e em que condições, os registros históricos do Jira (releases, bugs, histórico de alterações e reaberturas) permitem descrever e prever indicadores de governança operacional de equipes de tecnologia, usando técnicas ensinadas no MBA.
+
+As hipóteses **H1** e **H2** são confirmatórias:
+- **H1:** características da release conhecidas na publicação × bugs vinculados a ela em 180 dias.
+- **H2:** previsão, na abertura, da faixa de tempo até a correção do bug.
+
+As análises de retrabalho e de composição das demandas são exploratórias. **Sprints estão fora do escopo** desta versão. Os resultados são associações observacionais, não relações de causa e efeito. O **projeto Apache é a unidade primária** de análise.
+
+## Como visualizar ou executar
+
+| Modo | Como |
+|---|---|
+| **1. Consulta** | Abra [`TCC_Analise_e_Modelos_v2.ipynb`](TCC_Analise_e_Modelos_v2.ipynb) aqui no GitHub, já salvo com todas as saídas, ou veja `resultados/` |
+| **2. Reprodução completa local** | Requer o snapshot JSONL (não publicado); ver [`docs/reproducao.md`](docs/reproducao.md) |
+| **3. Colab** | O botão acima abre o notebook executado **para consulta**. A reexecução no Colab não é possível sem as bases locais, que não são publicadas. Enquanto o repositório for privado, o Colab exige autorização de acesso ao GitHub. |
+
+## Estrutura
+
+```
+TCC_Analise_e_Modelos_v2.ipynb   documento científico principal (executado, com saídas)
+src/coleta/                      apache_jira_extract.py (coleta via API) e quality_report.py (integridade)
+src/preparacao/                  01 projeção · 05 regras validadas + bases B–E · 06 níveis de evidência · 07 bases de modelagem
+src/analise/                     02 auditoria das aulas (materiais não incluídos) · 03 cobertura · 04 caracterização por projeto (base A)
+docs/                            metodologia, linhagem, dicionário de dados, decisões metodológicas, reprodução
+resultados/tabelas/              resultados agregados por projeto e métricas dos modelos (CSV)
+resultados/graficos/             gráficos do notebook (PNG)
+resultados/coleta/               manifest.json e relatório de qualidade da coleta
+tests/                           verificações mínimas (chaves, joins, cronologia, T0, privacidade)
+```
+
+## Dados
+
+- **Fonte:** `https://issues.apache.org/jira` (Jira Server 10.3.26), API REST v2, acesso anônimo e somente leitura.
+- **Critério:** `created >= 2020-01-01 OR updated >= 2020-01-01 OR resolution IS EMPTY`.
+- **Snapshot:** 25/10/2026 (20:22–21:57 UTC).
+- **Conteúdo:** 561.369 issues de 650 projetos, 6.464.445 históricos de alteração, 1.991.188 comentários, 843.975 worklogs e 23.837 versões, sem duplicatas e sem dados associados faltantes.
+- **Período principal das análises:** eventos a partir de 2020. Antes disso a coleta é seletiva: só traz issues abertas ou atualizadas depois de 2020.
+
+O snapshot (≈ 21 GB, ou 43 GB com intermediários) **não** é versionado: pelo volume e por conter nomes de exibição e logins de contribuidores e o texto integral de comentários. Apenas resultados agregados por projeto são publicados.
+
+## Pipeline
+
+```
+API Apache Jira ─► src/coleta/apache_jira_extract.py ─► snapshot JSONL ─► src/coleta/quality_report.py (integridade)
+      ─► src/preparacao/01_projetar_base.py (cache compacto, pessoas pseudonimizadas)
+      ─► src/analise/03, 04 (cobertura e caracterização por projeto)
+      ─► src/preparacao/05, 06 (regras validadas → bases analíticas)
+      ─► src/preparacao/07 (variáveis em T0, split cronológico)
+      ─► TCC_Analise_e_Modelos_v2.ipynb ─► resultados/
+```
+
+Os detalhes estão em [`docs/linhagem_dados.md`](docs/linhagem_dados.md).
+
+## Instalação e execução
+
+```bash
+python -m venv .venv && .venv/Scripts/activate        # Linux/Mac: source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env                                   # ajuste os caminhos (nenhuma credencial é necessária)
+
+# coleta (opcional; uma nova coleta difere do snapshot porque o Jira continua ativo)
+python src/coleta/apache_jira_extract.py
+python src/coleta/quality_report.py
+
+# preparação das bases (requer o snapshot)
+python src/preparacao/01_projetar_base.py
+python src/analise/03_diagnostico_cobertura.py
+python src/analise/04_caracterizacao_por_projeto.py
+python src/preparacao/05_validar_regras_negocio.py
+python src/preparacao/06_validar_pendencias.py
+python src/preparacao/07_bases_modelagem.py
+python -m pytest tests -q
+
+# notebook
+jupyter nbconvert --to notebook --execute --inplace TCC_Analise_e_Modelos_v2.ipynb
+```
+
+## Principais resultados desta execução
+
+| Frente | Resultado |
+|---|---|
+| Releases × bugs | 6.018 releases desde 2020. Dos vínculos por Affects Version, 71,7% são de bugs criados após a release; 133 projetos têm associação verificável. A data do vínculo é comprovada por evento em 15,9% e inferida com corroboração em 76,6%. |
+| H1 (Binomial Negativa + efeito de projeto; teste 2024–2026) | MAE de 6,63 contra 9,28 do baseline. Tamanho da release em T0: IRR 1,40 (IC95% 1,32–1,49). Associação significativa por projeto em 19 de 35. |
+| Tempo de correção | Primeira correção Fixed datada em 61,4% dos 114.556 bugs, com mediana de 5,75 dias; 17.463 encerrados sem correção |
+| H2 (logística multinomial + efeito de projeto; teste 2024–2025) | F1 macro de 0,29 contra 0,23 do baseline; acurácia de 0,53 contra 0,46. O modelo quase não prevê as faixas intermediárias, e a previsão em quatro faixas não é sustentada. |
+| Retrabalho | 5,2% dos bugs fechados foram reabertos; estabilidade de 95,5% em 90 dias |
+| Esforço | 99,84% dos worklogs são automáticos, então as horas **não** medem esforço |
+
+## Prevenção de vazamento de informação
+
+- **Estado em T0:** os modelos usam só o que era conhecido no instante da previsão. O changelog reconstrói a prioridade e o responsável na abertura, os componentes e o Affects Version na criação, e a composição da release na data de publicação.
+- **Validação:** o treino e o teste são **cronológicos** (treino em 2020–2023, teste a partir de 2024), com o horizonte do desfecho completamente observado.
+- **Testes automáticos:** `tests/` verifica a ausência de variáveis de estado final e o respeito à cronologia.
+
+## Limitações
+
+- **Affects Version:** é opcional e heterogêneo entre projetos. A presença "desde a criação" é inferida, e versões excluídas no Jira somem das issues sem registro.
+- **Releases:** `releaseDate` não está demonstrada como data real de publicação.
+- **Campos ausentes:** não há severidade nem causa raiz estruturadas, e prioridade ≠ severidade.
+- **Censura:** é tratada por horizonte fixo; a análise de sobrevivência não consta dos materiais do MBA.
+- **Projetos com série interrompida:** 26 projetos, como ARROW e BEAM, param de registrar bugs no Jira.
+- **Decisões pendentes:** a lista está em [`docs/decisoes_metodologicas.md`](docs/decisoes_metodologicas.md).
+
+## Reprodutibilidade
+
+Os resultados do notebook correspondem ao snapshot de 25/10/2026, identificado pelo `resultados/coleta/manifest.json`. Para reproduzi-los exatamente é necessário esse snapshot; uma nova coleta produz números próximos, mas não idênticos. Ambiente testado: Windows 11, Python 3.13 (versões em [`docs/reproducao.md`](docs/reproducao.md)).

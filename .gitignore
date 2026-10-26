@@ -1,0 +1,44 @@
+# ---- Credenciais e configuração local (NUNCA versionar) ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*token*
+*credential*
+.salt
+
+# ---- Dados brutos e intermediários (≈ 43 GB locais; ver docs/reproducao.md) ----
+data/
+dados/
+*.jsonl
+*.jsonl.gz
+parts/
+state/
+cache/
+cache_projecao/
+derivados/
+bases/
+*.parquet
+*.feather
+
+# ---- Materiais privados do MBA ----
+materiais_mba/
+Aulas/
+*.pdf
+*.docx
+*.xlsx
+*.zip
+
+# ---- Python / Jupyter ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# ---- Sistema ----
+.DS_Store
+Thumbs.db
+desktop.ini
