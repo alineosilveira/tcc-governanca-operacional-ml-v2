@@ -44,7 +44,17 @@ Os parâmetros abaixo são os efetivamente usados, conforme `resultados/coleta/m
 - **Caracterização por projeto** (unidade primária) e **segunda camada consolidada.** A heterogeneidade é medida pelo η² do projeto (ANOVA de um fator, descritiva).
 - **Estatística descritiva:** contagens, percentis, distribuições.
 - **Inferência descritiva:** correlação de Spearman por projeto (tamanho da release × bugs) e teste de Kruskal-Wallis entre tipos de versão. São técnicas de associação; não implicam causalidade.
-- **Modelagem** (Cap. 9): baseline por projeto + um modelo ensinado no MBA por problema, com split cronológico e só variáveis disponíveis em T0.
+- **Modelagem** (Cap. 9):
+  - **Modelo principal (D7):** um por problema, **conjunto**, ensinado no MBA e com efeito fixo de projeto, comparado a um baseline por projeto. Usa split cronológico e só variáveis disponíveis em T0.
+  - **Modelos individuais:** são complementares e **exploratórios**, ajustados só quando há observações, classes, convergência e teste válido.
+  - **Horizontes (D6):** 180 d (H1) e 90 d (faixas da H2), com acompanhamento completo.
+- **Reabertura:** permanece **exploratória e descritiva**; não há modelo preditivo de reabertura nesta versão.
+
+## 5. Decisões metodológicas
+
+As decisões D1–D8 foram aprovadas e estão registradas em `decisoes_metodologicas.md`, com o status de implementação de cada uma. Duas diferenças entre o aprovado e o executado estão declaradas lá, e não foram recalculadas nesta versão:
+- **D2:** o limite de 10% de vínculos indeterminados ainda não foi aplicado e excluiria HTTPCORE da H1.
+- **D8:** na H2, os projetos sem observações de teste também ficaram fora do treino.
 
 ### Técnicas do MBA utilizadas
 

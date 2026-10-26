@@ -91,10 +91,10 @@ jupyter nbconvert --to notebook --execute --inplace TCC_Analise_e_Modelos_v2.ipy
 | Frente | Resultado |
 |---|---|
 | Releases × bugs | 6.018 releases desde 2020. Dos vínculos por Affects Version, 71,7% são de bugs criados após a release; 133 projetos têm associação verificável. A data do vínculo é comprovada por evento em 15,9% e inferida com corroboração em 76,6%. |
-| H1 (Binomial Negativa + efeito de projeto; teste 2024–2026) | MAE de 6,63 contra 9,28 do baseline. Tamanho da release em T0: IRR 1,40 (IC95% 1,32–1,49). Associação significativa por projeto em 19 de 35. |
+| H1 (Binomial Negativa + efeito de projeto; teste 2024–2026) | MAE de 6,63 contra 9,28 do baseline. Tamanho da release em T0: IRR 1,40 (IC95% 1,32–1,49), alvo ampliado (D1). A direção do efeito se mantém no alvo conservador (limite inferior) e no máximo, mas as contagens absolutas diferem muito (média de 1,27 × 8,20 × 8,42 bugs por release). Associação significativa por projeto em 19 de 35. Associação, não causalidade. |
 | Tempo de correção | Primeira correção Fixed datada em 61,4% dos 114.556 bugs, com mediana de 5,75 dias; 17.463 encerrados sem correção |
-| H2 (logística multinomial + efeito de projeto; teste 2024–2025) | F1 macro de 0,29 contra 0,23 do baseline; acurácia de 0,53 contra 0,46. O modelo quase não prevê as faixas intermediárias, e a previsão em quatro faixas não é sustentada. |
-| Retrabalho | 5,2% dos bugs fechados foram reabertos; estabilidade de 95,5% em 90 dias |
+| H2 (logística multinomial + efeito de projeto; teste 2024–2025) | F1 macro de 0,29 contra 0,23 do baseline; acurácia de 0,53 contra 0,46. **Desempenho modesto.** O modelo quase não prevê as duas faixas intermediárias, e a previsão em quatro faixas **não** é sustentada. Os modelos individuais (22 projetos, exploratórios) superaram o conjunto em só 6. |
+| Retrabalho (exploratório, descritivo) | 5,2% dos bugs fechados foram reabertos; estabilidade de 95,5% em 90 dias. Não há modelo de reabertura. |
 | Esforço | 99,84% dos worklogs são automáticos, então as horas **não** medem esforço |
 
 ## Prevenção de vazamento de informação
@@ -110,7 +110,8 @@ jupyter nbconvert --to notebook --execute --inplace TCC_Analise_e_Modelos_v2.ipy
 - **Campos ausentes:** não há severidade nem causa raiz estruturadas, e prioridade ≠ severidade.
 - **Censura:** é tratada por horizonte fixo; a análise de sobrevivência não consta dos materiais do MBA.
 - **Projetos com série interrompida:** 26 projetos, como ARROW e BEAM, param de registrar bugs no Jira.
-- **Decisões pendentes:** a lista está em [`docs/decisoes_metodologicas.md`](docs/decisoes_metodologicas.md).
+- **Decisões metodológicas:** as decisões D1–D8 foram aprovadas e estão registradas em [`docs/decisoes_metodologicas.md`](docs/decisoes_metodologicas.md), com o status de implementação de cada uma.
+- **Ainda não executado:** algumas sensibilidades (H1 em 90 d, estabilidade sem reaberturas rápidas, sinalização de lotes) e dois ajustes de conformidade: D2, que excluiria HTTPCORE da H1, e D8, que incluiria na H2 os projetos sem teste.
 
 ## Reprodutibilidade
 
